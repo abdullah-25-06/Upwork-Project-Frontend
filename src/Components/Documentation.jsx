@@ -15,6 +15,7 @@ import axios from "axios";
 import Navbar from "./Navbar";
 
 function Documentation() {
+  const [file, setFile] = useState();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [selectedValue, setSelectedValue] = useState("");
@@ -41,7 +42,7 @@ function Documentation() {
             },
           }
         );
-        console.log(data)
+
         setVehicle(data.vehicle.vehicleNo);
         setName(data.vehicle.name);
         setDocument(data.vehicle.documentNo);
@@ -49,6 +50,7 @@ function Documentation() {
         setStartDate(data.vehicle.startDate);
         setEndDate(data.vehicle.endDate);
         setDay(data.vehicle.reminderDays);
+        
         setA((prev) => !prev);
       } catch (err) {
         alert("Please Submit the data");
@@ -110,7 +112,7 @@ function Documentation() {
       !day ||
       !startDate ||
       !endDate ||
-      !selectedValue
+      !selectedValue || !file
     ) {
       return alert("Fillout all the fields");
     }
@@ -125,10 +127,12 @@ function Documentation() {
           endDate,
           reminders: selectedValue,
           reminderDays: day,
+          file
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            // "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
             auth_token: localStorage.getItem("access")
               ? `Bearer ${localStorage.getItem("access")}`
               : null,
@@ -137,6 +141,7 @@ function Documentation() {
       );
 
       alert("data Submitted");
+      window.location.reload()
     } catch (err) {
       console.log(err);
     }
@@ -149,9 +154,9 @@ function Documentation() {
     />
   );
   const icon = <FaCog size={24} />;
-  const [file, setFile] = useState();
   const handlefile = (event) => {
     setFile(event.target.files[0]);
+    console.log(event.target.files[0])
   };
   const getval = (event) => {
     setTitle(event.target.innerHTML);
