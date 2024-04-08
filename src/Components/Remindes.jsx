@@ -116,7 +116,7 @@ function Remindes() {
       return alert("Fillout all the fields");
     }
     try {
-      const { data } = await axios.post(
+       await axios.post(
         `http://localhost:8000/maintance?id=${ctx.selectedCar._id}`,
         {
           kilometer,

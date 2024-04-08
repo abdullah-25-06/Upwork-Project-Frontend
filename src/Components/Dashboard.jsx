@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import DataContext from "../store/store";
 import Navbar from "./Navbar";

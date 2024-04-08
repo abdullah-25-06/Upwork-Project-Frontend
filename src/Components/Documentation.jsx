@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { FaCog } from "react-icons/fa";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Radio from "@mui/material/Radio";
@@ -118,7 +117,7 @@ function Documentation() {
 
     }
     try {
-      const { data } = await axios.post(
+      await axios.post(
         `http://localhost:8000/doc?id=${ctx.selectedCar._id}`,
         {
           vehicleNo,
@@ -147,14 +146,14 @@ function Documentation() {
       console.log(err);
     }
   };
-  const user = (
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdG690MSVD3174A5oyDnwT49s0_nr-seUkwoAvj1iKOQ&s"
-      alt="React Bootstrap logo"
-      style={{ width: "45px", height: "45px", marginRight: "5px" }}
-    />
-  );
-  const icon = <FaCog size={24} />;
+  // const user = (
+  //   <img
+  //     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdG690MSVD3174A5oyDnwT49s0_nr-seUkwoAvj1iKOQ&s"
+  //     alt="React Bootstrap logo"
+  //     style={{ width: "45px", height: "45px", marginRight: "5px" }}
+  //   />
+  // );
+  // const icon = <FaCog size={24} />;
   const handlefile = (event) => {
     setFile(event.target.files[0]);
     console.log(event.target.files[0])

@@ -24,7 +24,7 @@ function Vehicile() {
 
   const delx = async (id) => {
     try {
-      const { data } = await axios.post(
+       await axios.post(
         `http://localhost:8000/delete?id=${id}`,
         {
         },
