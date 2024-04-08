@@ -53,13 +53,13 @@ function Documentation() {
         
         setA((prev) => !prev);
       } catch (err) {
-        alert("Please Submit the data");
+        // alert("Please Submit the data");
         setVehicle();
         setName();
         setDocument();
         setSelectedValue();
-        setStartDate();
-        setEndDate();
+        setStartDate(new Date());
+        setEndDate(new Date());
         setDay();
         setA((prev) => !prev);
       }
@@ -100,7 +100,7 @@ function Documentation() {
             )
           );
         })}
-        ;
+        
       </NavDropdown>
     </div>
   ) : <h6> NO Cars</h6>;
@@ -115,6 +115,7 @@ function Documentation() {
       !selectedValue || !file
     ) {
       return alert("Fillout all the fields");
+
     }
     try {
       const { data } = await axios.post(

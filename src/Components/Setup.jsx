@@ -13,9 +13,9 @@ function Setup() {
     const [data, setData] = useState()
     console.log(ctx)
     useEffect(() => {
-        setName(ctx?.userData.firstName)
-        setEmail(ctx?.userData.email)
-        setlName(ctx?.userData.lastName)
+        setName(ctx?.userData?.firstName)
+        setEmail(ctx?.userData?.email)
+        setlName(ctx?.userData?.lastName)
         setData(ctx?.carData)
     }, [ctx])
     const dataCar = data?.length >= 1 ? data.map((data) => {

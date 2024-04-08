@@ -49,7 +49,7 @@ function Remindes() {
         setSelectedValue(data.vehicle.reminder);
         setA((prev) => !prev);
       } catch (err) {
-        alert("Please Submit the data");
+        // alert("Please Submit the data");
         setStartDate(new Date());
         setKilometer();
         setDays();
@@ -58,6 +58,7 @@ function Remindes() {
         setSelectedValue();
         setA((prev) => !prev);
       }
+      setStartDate(new Date());
     }
     ctx.selectedCar && Call();
     setDataSource(ctx.carData);
@@ -92,7 +93,7 @@ function Remindes() {
             )
           );
         })}
-        ;
+        
       </NavDropdown>
     </div>
   ) : <h6> NO Cars</h6>;

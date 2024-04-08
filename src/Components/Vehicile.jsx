@@ -101,13 +101,13 @@ function Vehicile() {
                 >
                   Edit
                 </p>
-                <NavLink
+                <p
                   onClick={() => {
                     delx(car._id);
                   }}
                 >
                   delete
-                </NavLink>
+                </p>
               </div>
             </div>
           </div>
