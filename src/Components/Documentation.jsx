@@ -31,7 +31,7 @@ function Documentation() {
     async function Call() {
       try {
         const { data } = await axios.get(
-          `http://localhost:8000/getdoc?id=${ctx.selectedCar._id}`,
+          `https://vehicle-backend-final2.vercel.app/getdoc?id=${ctx.selectedCar._id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -118,7 +118,7 @@ function Documentation() {
     }
     try {
       await axios.post(
-        `http://localhost:8000/doc?id=${ctx.selectedCar._id}`,
+        `https://vehicle-backend-final2.vercel.app/doc?id=${ctx.selectedCar._id}`,
         {
           vehicleNo,
           name,
@@ -187,7 +187,7 @@ function Documentation() {
               M A I N T E N A C E
             </button>
           </NavLink>
-          <NavLink to="/Documentaion">
+          <NavLink to="/Documentation">
             <button
               id="subbtn3"
               style={{ width: "220px", fontSize: "18px", color: "#CFCD95" }}

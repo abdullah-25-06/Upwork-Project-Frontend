@@ -39,7 +39,7 @@ function Signup() {
             if (password !== password2) {
                 return alert("Please enter the same password")
             }
-            const { data } = await axios.post("http://localhost:8000/signup", {
+            const { data } = await axios.post("https://vehicle-backend-final2.vercel.app/signup", {
                 email: email.toLowerCase(), password: password.toLowerCase(), firstName: firstName.toLowerCase(), lastName: lastName.toLowerCase()
             }, { headers: { "Content-Type": "application/json" } })
             console.log(data)

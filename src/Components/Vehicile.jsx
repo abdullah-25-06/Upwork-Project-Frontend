@@ -25,7 +25,7 @@ function Vehicile() {
   const delx = async (id) => {
     try {
        await axios.post(
-        `http://localhost:8000/delete?id=${id}`,
+        `https://vehicle-backend-final2.vercel.app/delete?id=${id}`,
         {
         },
         {
@@ -43,7 +43,7 @@ function Vehicile() {
       ctx.data([...temp])
 
     } catch (err) {
-      console.log(err);
+
       alert("Please Submit Again")
     }
 

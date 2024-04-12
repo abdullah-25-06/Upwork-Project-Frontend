@@ -31,7 +31,7 @@ function Remindes() {
     async function Call() {
       try {
         const { data } = await axios.get(
-          `http://localhost:8000/getmaintance?id=${ctx.selectedCar._id}`,
+          `https://vehicle-backend-final2.vercel.app/getmaintance?id=${ctx.selectedCar._id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -117,7 +117,7 @@ function Remindes() {
     }
     try {
        await axios.post(
-        `http://localhost:8000/maintance?id=${ctx.selectedCar._id}`,
+        `https://vehicle-backend-final2.vercel.app/maintance?id=${ctx.selectedCar._id}`,
         {
           kilometer,
           days,

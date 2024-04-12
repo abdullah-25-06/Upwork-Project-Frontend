@@ -21,7 +21,7 @@ function Login() {
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const loginHandler = async () => {
         try {
-            const { data } = await axios.post("http://localhost:8000/login", {
+            const { data } = await axios.post("https://vehicle-backend-final2.vercel.app/login", {
                 email: email.toLowerCase(), password: password.toLowerCase()
             }, { headers: { "Content-Type": "application/json" } })
             localStorage.setItem("isLoggedIn", 1)

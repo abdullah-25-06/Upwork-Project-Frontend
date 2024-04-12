@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Radio from "@mui/material/Radio";
@@ -63,7 +63,7 @@ function Addcar() {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:8000/vehicle`,
+        `https://vehicle-backend-final2.vercel.app/vehicle`,
         {
           make,
           model,
@@ -107,8 +107,8 @@ function Addcar() {
     }
 
     try {
-      const { data } = await axios.post(
-        `http://localhost:8000/update?id=${id}`,
+      await axios.post(
+        `https://vehicle-backend-final2.vercel.app/update?id=${id}`,
         {
           make,
           model,
@@ -268,7 +268,11 @@ function Addcar() {
               <img src="upload.png" alt="" />
               <p className="pt-4">File size:500kb</p>
             </div>
-            <div className="imgsquare mt-1">
+            <div className="imgsquare mt-1 " style={images?.length > 0 ? { height: 'max-content' } : {
+              width: " 160px",
+              height: " 160px",
+              border: "1px solid rgb(130, 95, 95)"
+            }}>
               {/* Yha image show hogy in this div */}
               {/* <ImageUploading
                 multiple
@@ -311,12 +315,13 @@ function Addcar() {
                       imageList.map((image, index) => (
                         <div
                           key={index}
-                          className="image-item"
+                          className="image-item "
                           style={{
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
+                            height: "100%"
                           }}
                         >
 

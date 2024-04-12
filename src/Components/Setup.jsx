@@ -11,7 +11,7 @@ function Setup() {
     const [email, setEmail] = useState()
     const [lname, setlName] = useState()
     const [data, setData] = useState()
-    console.log(ctx)
+    
     useEffect(() => {
         setName(ctx?.userData?.firstName)
         setEmail(ctx?.userData?.email)

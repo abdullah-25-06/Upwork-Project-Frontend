@@ -20,7 +20,7 @@ export const DataContextProvider = (props) => {
   useEffect(() => {
     async function Call() {
       try {
-        const { data } = await axios.get(`http://localhost:8000/detail`, {
+        const { data } = await axios.get(`https://vehicle-backend-final2.vercel.app/detail`, {
           headers: {
             "Content-Type": "application/json",
             // auth_token:
