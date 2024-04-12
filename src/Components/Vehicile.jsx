@@ -24,7 +24,7 @@ function Vehicile() {
 
   const delx = async (id) => {
     try {
-       await axios.post(
+      await axios.post(
         `https://vehicle-backend-final2.vercel.app/delete?id=${id}`,
         {
         },
@@ -54,6 +54,16 @@ function Vehicile() {
       pathname: "/Add",
       search: createSearchParams({
         id: id,
+      }).toString(),
+    });
+  };
+  const toView = (id) => {
+    ctx.setCar(id);
+    navigate({
+      pathname: "/Add",
+      search: createSearchParams({
+        id: id,
+        mode: "view"
       }).toString(),
     });
   };
@@ -89,7 +99,7 @@ function Vehicile() {
               <div className="dropbox" id={`${ind}`}>
                 <p
                   onClick={() => {
-                    toAdd(car._id);
+                    toView(car._id);
                   }}
                 >
                   View

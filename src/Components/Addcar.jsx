@@ -23,6 +23,7 @@ function Addcar() {
   const [selectedValue, setSelectedValue] = useState("");
   const [queryParameters] = useSearchParams();
   const id = queryParameters.get("id") ? queryParameters.get("id") : null;
+  const view = queryParameters.get("mode") ? queryParameters.get("mode") : null;
   const ctx = useContext(DataContext);
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
@@ -169,12 +170,15 @@ function Addcar() {
                 onChange={(value) => {
                   setMake(value.target.value);
                 }}
+                disabled={view ? true : false}
                 id="standard-basic"
                 label="Make"
                 variant="standard"
+
               />
               <TextField
                 id="standard-basic"
+                disabled={view ? true : false}
                 onChange={(value) => {
                   setModel(value.target.value);
                 }}
@@ -192,6 +196,7 @@ function Addcar() {
               >
                 <TextField
                   id="standard-basic"
+                  disabled={view ? true : false}
                   onChange={(value) => {
                     setYear(value.target.value);
                   }}
@@ -204,6 +209,7 @@ function Addcar() {
                   onChange={(value) => {
                     setVehicle(value.target.value);
                   }}
+                  disabled={view ? true : false}
                   value={vehicle_no}
                   id="standard-basic"
                   label="Vehicle No"
@@ -217,6 +223,7 @@ function Addcar() {
                 }}
                 value={chasis_no}
                 id="standard-basic"
+                disabled={view ? true : false}
                 style={{ color: "#1C85D0" }}
                 label="chasis No"
                 variant="standard"
@@ -235,23 +242,26 @@ function Addcar() {
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="row-radio-buttons-group"
                 value={selectedValue}
+                disabled={view ? true : false}
               >
                 <FormControlLabel
                   id="lightblue"
                   value="Petrol"
                   control={<Radio />}
                   label="Petrol"
+                  disabled={view ? true : false}
                 />
                 <FormControlLabel
                   id="lightblue"
                   value="Diesel"
                   control={<Radio />}
                   label="diesel"
+                  disabled={view ? true : false}
                 />
               </RadioGroup>
             </FormControl>
           </div>
-          <div className="btnparent">
+          {!view && <div className="btnparent">
             {id ? (
               <button id="subbtn" onClick={onEdit}>
                 Edit
@@ -261,7 +271,7 @@ function Addcar() {
                 submit
               </button>
             )}
-          </div>
+          </div>}
           <div className="col-xl-5 p2">
             <div className="uploadhead">
               <h5 className="pt-3">image upload</h5>
@@ -357,6 +367,7 @@ function Addcar() {
                     onClick={onImageUpload}
                     {...dragProps}
                     style={isDragging ? { color: "red" } : null}
+                    disabled={view ? true : false}
                   >
                     Browse
                   </button>
@@ -369,6 +380,7 @@ function Addcar() {
                       whiteSpace: "nowrap",
                       padding: "5px",
                     }}
+                    disabled={view ? true : false}
                   >
                     Remove
                   </button>
